@@ -6,7 +6,7 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 /**
- * A custom JUnit test runner that can execute a specified test method in a test
+ * A custom JUnit test runner that can execute a single test method in a test
  * class.
  */
 public class SingleJUnitTestRunner {
