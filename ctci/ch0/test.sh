@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Chapter
+CHAPTER="ch0"
+# Project package
+PROJECT_PKG="com.ganbatte.ctci"
+# Solutions package
+SOLUTIONS_PKG="${PROJECT_PKG}.${CHAPTER}"
+# Test package
+TEST_PKG="${SOLUTIONS_PKG}.testSuites"
+# Test utilities package
+TEST_UTILS_PKG="${PROJECT_PKG}.testUtils"
 # The containing class of the method to be tested
 TESTEE_CLASS="Solutions"
 # The method to be tested
@@ -31,9 +41,9 @@ if [ "$2" = "" ]; then
 	TEST_TARGET=$TEST_SUITE
 # Run the specified test in test class
 else
-	TEST_RUNNER="SingleJUnitTestRunner"
+	TEST_RUNNER="${TEST_UTILS_PKG}.SingleJUnitTestRunner"
 	TEST_TARGET="${TEST_SUITE}#$2"
 fi
 
 # Go! Run test(s)
-java -cp .:$JUNIT_PATH:$TEST_UTILS_PATH:$CLASSES_PATH $TEST_RUNNER $TEST_TARGET
+java -cp .:$JUNIT_PATH:$TEST_UTILS_PATH:$CLASSES_PATH $TEST_RUNNER ${TEST_PKG}.$TEST_TARGET
