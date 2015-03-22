@@ -1,5 +1,8 @@
 package com.ganbatte.ctci.ch0;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class Solutions {
 	/**
 	 * P.52
@@ -14,7 +17,7 @@ public class Solutions {
 		return diff > 180 ? diff % 180 : diff;
 	}
     
-    /**
+	/**
 	 * P.53
 	 */
 	public static int findStartIndex(int[] a) {
@@ -36,5 +39,45 @@ public class Solutions {
 			return findStartIndex(a, mid+1, end);
 		}
 		return start;
+	}
+
+	/**
+	 * P.53
+	 */
+	public static boolean isMsgMadeFromMagzine(String msg, String magzine) {
+		if (msg.length() > magzine.length()) {
+			return false;
+		}
+		// If the size of character set is small, we can use an array and encode 
+		// characters into integers to save space
+		Map<Character, Integer> charFreq = getCharFreq(magzine);
+		for (int i = 0; i < msg.length(); i++) {
+			char c = msg.charAt(i);
+			if (!charFreq.keySet().contains(c)) {
+				return false;
+			}
+			int left = charFreq.get(c) - 1;
+			if (left < 0) {
+				return false;
+			}
+			charFreq.put(c, left);
+		}
+		return true;
+	}
+
+	private static Map<Character, Integer> getCharFreq(String s) {
+		Map<Character, Integer> m = new HashMap<>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c == ' ') {
+				continue;
+			}
+			if (!m.keySet().contains(c)) {
+				m.put(c, 1);
+			} else {
+				m.put(c, m.get(c) + 1);
+			}
+		}
+		return m;
 	}
 }
