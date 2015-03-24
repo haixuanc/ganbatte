@@ -2,6 +2,8 @@ package com.ganbatte.ctci.ch0;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Solutions {
 	/**
@@ -79,5 +81,40 @@ public class Solutions {
 			}
 		}
 		return m;
+	}
+
+	/**
+	 * P.54
+	 */
+	public static void printAllPerms(String chars) {
+		List<String> perms = getAllPerms(chars);
+		for (String p : perms) {
+			System.out.println(p);
+		}
+	}
+
+	public static List<String> getAllPerms(String chars) {
+		List<String> perms = new ArrayList<>();
+		if (chars.length() <= 1) {
+			perms.add(chars);
+			return perms;
+		}
+		char c = chars.charAt(0);
+		List<String> subPerms = getAllPerms(chars.substring(1));
+		for (String subPerm : subPerms) {
+			perms.addAll(getPerms(c, subPerm));
+		}
+		return perms;
+	}
+
+	private static List<String> getPerms(char c, String s) {
+		List<String> perms = new ArrayList<>();
+		for (int i = 0; i < s.length(); i++) {
+			String before = s.substring(0, i);
+			String after = s.substring(i);
+			perms.add(before + c + after);
+		}
+		perms.add(s + c);
+		return perms;
 	}
 }
