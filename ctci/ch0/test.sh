@@ -3,7 +3,7 @@
 # Chapter
 CHAPTER="ch0"
 # The containing class of the method to be tested
-TESTEE_CLASS="Solutions"
+TESTEE_CLASS="CurrentMedianTracker"
 # The method to be tested
 TESTEE_METHOD=$1
 # The test suite class

@@ -93,6 +93,9 @@ public class Solutions {
 		}
 	}
 
+	/**
+	 * A recursive solution
+	 */
 	public static List<String> getAllPerms(String chars) {
 		List<String> perms = new ArrayList<>();
 		if (chars.length() <= 1) {
@@ -105,6 +108,32 @@ public class Solutions {
 			perms.addAll(getPerms(c, subPerm));
 		}
 		return perms;
+	}
+
+	/**
+	 * An iterative solution
+	 */
+	public static List<String> getAllPermsIter(String chars) 
+		throws IllegalArgumentException {
+		if (chars.length() == 0) {
+			throw new IllegalArgumentException();
+		}
+		List<String> finals = new ArrayList<>();
+		List<String> temps;
+		for (int i = 0; i < chars.length(); i++) {
+			temps = finals;
+			char c = chars.charAt(i);
+			if (temps.isEmpty()) {
+				finals.add(c + "");
+				continue;
+			}
+			finals = new ArrayList<String>();
+			for (String temp : temps) {
+				finals.addAll(getPerms(c, temp));
+			}
+			temps.clear();
+		}
+		return finals;
 	}
 
 	private static List<String> getPerms(char c, String s) {
