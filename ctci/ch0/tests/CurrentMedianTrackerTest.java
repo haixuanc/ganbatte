@@ -1,4 +1,4 @@
-package com.ctci.ch0.testSuites;
+package com.ctci.ch0.tests;
 
 import com.ctci.ch0.CurrentMedianTracker;
 

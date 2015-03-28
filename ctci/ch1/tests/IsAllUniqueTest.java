@@ -1,4 +1,4 @@
-package com.ctci.ch1.testSuites;
+package com.ctci.ch1.tests;
 
 import static com.ctci.ch1.Solutions.isAllUnique;
 

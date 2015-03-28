@@ -29,7 +29,7 @@ PROJECT_PKG=com.ctci
 # The solution package
 SOLUTIONS_PKG=$PROJECT_PKG.$CHAPTER
 # The test suite package
-TEST_PKG=$SOLUTIONS_PKG.testSuites
+TEST_PKG=$SOLUTIONS_PKG.tests
 # Test utilities package
 TEST_UTILS_PKG=$PROJECT_PKG.testUtils
 
@@ -38,7 +38,7 @@ JUNIT_PATH=/usr/share/java/junit-4.12.jar:/usr/share/java/hamcrest-core-1.3.jar
 # Path to test utility source code
 TEST_UTILS_PATH=../test-utils
 # Path to test suite source code
-TEST_SUITE_PATH=./test-suites
+TEST_SUITE_PATH=./tests
 # Path to the root directory of all compiled classes
 DESTINATION_PATH=./bin
 
