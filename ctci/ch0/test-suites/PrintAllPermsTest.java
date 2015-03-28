@@ -1,7 +1,7 @@
-package com.ganbatte.ctci.ch0.testSuites;
+package com.ctci.ch0.testSuites;
 
-import static com.ganbatte.ctci.ch0.Solutions.getAllPerms;
-import static com.ganbatte.ctci.ch0.Solutions.getAllPermsIter;
+import static com.ctci.ch0.Solutions.getAllPerms;
+import static com.ctci.ch0.Solutions.getAllPermsIter;
 
 import org.junit.Test;
 import static org.junit.Assert.assertArrayEquals;

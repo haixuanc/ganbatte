@@ -1,4 +1,4 @@
-package com.ganbatte.ctci.ch0;
+package com.ctci.ch0;
 
 import java.util.Queue;
 import java.util.PriorityQueue;

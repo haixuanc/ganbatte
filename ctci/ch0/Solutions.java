@@ -1,4 +1,4 @@
-package com.ganbatte.ctci.ch0;
+package com.ctci.ch0;
 
 import java.util.Map;
 import java.util.HashMap;

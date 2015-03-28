@@ -1,4 +1,4 @@
-package com.ganbatte.ctci.testUtils;
+package com.ctci.testUtils;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;

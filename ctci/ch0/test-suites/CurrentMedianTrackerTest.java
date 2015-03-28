@@ -1,6 +1,6 @@
-package com.ganbatte.ctci.ch0.testSuites;
+package com.ctci.ch0.testSuites;
 
-import com.ganbatte.ctci.ch0.CurrentMedianTracker;
+import com.ctci.ch0.CurrentMedianTracker;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
