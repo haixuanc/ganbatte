@@ -1,6 +1,8 @@
 package com.ctci.ch1;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Solutions {
 	/**
@@ -94,5 +96,64 @@ public class Solutions {
 			s[j] = tmp;
 		}
 		return new String(s);
+	}
+
+	/**
+	 * Q3
+	 *
+	 * Solution 1
+	 */
+	public static boolean isPermutation1(String s1, String s2) {
+		if (s1.length() != s2.length()) {
+			return false;
+		}
+		char[] c1 = s1.toCharArray();
+		Arrays.sort(c1);
+		char[] c2 = s2.toCharArray();
+		Arrays.sort(c2);
+		for (int i = 0; i < c1.length; i++) {
+			if (c1[i] != c2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Q3
+	 *
+	 * Solution 2
+	 */
+	public static boolean isPermutation(String s1, String s2) {
+		if (s1.length() != s2.length()) {
+			return false;
+		}
+		// Use an array with index equals char code value if char set is small
+		// e.g. int[] counts = new int[256] for ASCII
+		Map<Character, Integer> charCounts1 = getCharCounts(s1);
+		Map<Character, Integer> charCounts2 = getCharCounts(s2);
+		if (charCounts1.size() != charCounts2.size()) {
+			return false;
+		}
+		for (Map.Entry<Character, Integer> e1 : charCounts1.entrySet()) {
+			if (!charCounts2.containsKey(e1.getKey()) || 
+				!charCounts2.get(e1.getKey()).equals(e1.getValue())) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	private static Map<Character, Integer> getCharCounts(String s) {
+		Map<Character, Integer> counts = new HashMap<>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (counts.containsKey(c)) {
+				counts.put(c, counts.get(c) + 1);
+			} else {
+				counts.put(c, 1);
+			}
+		}
+		return counts;
 	}
 }
